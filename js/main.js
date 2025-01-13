@@ -97,19 +97,21 @@ const addCalendarsWithDelay = (container, year, delay) => {
 };
 
 let currentYear = new Date().getFullYear();
+let controlsStartYear = document.querySelector('.calendar-controls__current-year')
+controlsStartYear.textContent = currentYear;
+
 document.addEventListener('DOMContentLoaded', () => {
   addCalendarsWithDelay('.calendar__inner', currentYear, 20);
 
-  // Обработчики кнопок переключения года
-  document.getElementById('prevYear').addEventListener('click', () => {
+  document.querySelector('.calendar-controls__prev-year').addEventListener('click', () => {
     currentYear -= 1;
-    document.getElementById('currentYear').textContent = currentYear;
+    document.querySelector('.calendar-controls__current-year').textContent = currentYear;
     addCalendarsWithDelay('.calendar__inner', currentYear, 20);
   });
 
-  document.getElementById('nextYear').addEventListener('click', () => {
+  document.querySelector('.calendar-controls__next-year').addEventListener('click', () => {
     currentYear += 1;
-    document.getElementById('currentYear').textContent = currentYear;
+    document.querySelector('.calendar-controls__current-year').textContent = currentYear;
     addCalendarsWithDelay('.calendar__inner', currentYear, 20);
   });
 });
