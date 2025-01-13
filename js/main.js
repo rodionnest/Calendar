@@ -23,7 +23,7 @@ const monthNames = [
  * Creates a calendar for a specified month and year and inserts it into a given element.
  *
  * @function
- * @param {string} element - A CSS selector for the element where the calendar will be inserted.
+ * @param {string} container - A CSS selector for the element where the calendar will be inserted.
  * @param {number} year - The year for which the calendar is created.
  * @param {number} month - The month (1–12) for which the calendar is created.
  * @throws {Error} Throws an error if the element with the specified selector is not found.
@@ -32,15 +32,15 @@ const monthNames = [
  * // Create a calendar for January 2025 inside an element with the id "calendar-container":
  * createMonthCalendar('.calendar-container', 2025, 1);
  */
-const createMonthCalendar = function createMonthCalendar(element, year, month) {
-  let elem = document.querySelector(element);
-  let mon = month -1;
-  let date = new Date(year, mon);
+const createMonthCalendar = function createMonthCalendar(container, year, month) {
+  let element = document.querySelector(container);
+  let monthIndex = month -1;
+  let date = new Date(year, monthIndex);
 
   let table = `
   <div class="calendar-month-card">
     <table class="calendar-month-card__table">
-    <caption class="calendar-month-card__caption">${monthNames[mon]}</caption>
+    <caption class="calendar-month-card__caption">${monthNames[monthIndex]}</caption>
       <tr>
         <th class="calendar-month-card__table-th">Mo</th>
         <th class="calendar-month-card__table-th">Tu</th>
@@ -57,7 +57,7 @@ const createMonthCalendar = function createMonthCalendar(element, year, month) {
     table += '<td class="calendar-month-card__table-td"></td>';
   }
 
-  while (date.getMonth() === mon) {
+  while (date.getMonth() === monthIndex) {
     table += `<td class="calendar-month-card__table-td">${date.getDate()}</td>`;
     if (getDay(date) % 7 === 6) {
       table += '</tr><tr>';
@@ -70,7 +70,7 @@ const createMonthCalendar = function createMonthCalendar(element, year, month) {
   }
 
   table += '</tr></table><div>';
-  elem.insertAdjacentHTML('beforeend', table);
+  element.insertAdjacentHTML('beforeend', table);
 };
 
 /**
@@ -87,8 +87,8 @@ const createMonthCalendar = function createMonthCalendar(element, year, month) {
  * addCalendarsWithDelay('.calendar__inner', 2025, 100);
  */
 const addCalendarsWithDelay = (container, year, delay) => {
-  const elem = document.querySelector(container);
-  elem.innerHTML = '';
+  const element = document.querySelector(container);
+  element.innerHTML = '';
   for (let month = 1; month <= 12; month++) {
     setTimeout(() => {
       createMonthCalendar(container, year, month);
