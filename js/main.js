@@ -36,21 +36,20 @@ const setOfDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
  */
 const createMonthCalendar = function createMonthCalendar(container, year, month) {
   const element = document.querySelector(container);
-  const monthIndex = month -1;
+  const monthIndex = month - 1;
   let date = new Date(year, monthIndex);
+  let TableHeaders = '';
+
+  for (let i = 0; i < 7; i += 1) {
+    TableHeaders += `<th class="calendar-month-card__table-th">${setOfDays[i]}</th>`;
+  }
 
   let table = `
   <div class="calendar-month-card">
     <table class="calendar-month-card__table">
     <caption class="calendar-month-card__caption">${monthNames[monthIndex]}</caption>
       <tr>
-        <th class="calendar-month-card__table-th">Mo</th>
-        <th class="calendar-month-card__table-th">Tu</th>
-        <th class="calendar-month-card__table-th">We</th>
-        <th class="calendar-month-card__table-th">Th</th>
-        <th class="calendar-month-card__table-th">Fr</th>
-        <th class="calendar-month-card__table-th">Sa</th>
-        <th class="calendar-month-card__table-th">Su</th>
+      ${TableHeaders}
       </tr>
       <tr>
   `;
