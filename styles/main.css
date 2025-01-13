@@ -2,14 +2,15 @@ body {
 	height: 2080px;
 	overflow: hidden;
 	font-family: var(--main-font-family);
-	/* font-size: 4px; */
 	color: var(--main-font-color);
 }
+
 .container {
 	width: 100%;
 	margin: 0 auto;
 	max-width: 1440px;
 }
+
 .calendar__inner {
 	display: grid;
 	grid-template-columns: repeat(4, 230px);
@@ -17,6 +18,7 @@ body {
 	gap: 20px 40px;
 	padding-top: 18px;
 }
+
 .calendar-controls {
 	display: flex;
 	align-items: center;
@@ -31,60 +33,70 @@ body {
 	text-align: center;
 	font-weight: bold;
 }
+
 .calendar-month-card {
 	width: 230px;
 	height: 243px;
-	background-color: #2f3845;
+	background-color: var(--card-bgcolor);
 	box-shadow: -10px 10px 0px 0px rgba(0, 0, 0, 0.25);
 	border-radius: 15px;
 	margin: 0 auto;
 	transition: transform 0.1s ease-in-out;
-	opacity: 0; /* Изначально карточки невидимы */
-	transform: translateY(20px); /* Смещение вниз */
-	animation: fadeIn 0.5s forwards; /* Анимация появления */
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeIn 0.5s forwards;
 }
-.calendar-month-card caption {
+
+.calendar-month-card__caption {
 	width: 100%;
 	color: white;
 	font-weight: bold;
 	padding: 9px 0px 3px;
 }
-.calendar-month-card table th:nth-child(6),
-.calendar-month-card table td:nth-child(6),
-.calendar-month-card table th:nth-child(7),
-.calendar-month-card table td:nth-child(7) {
-    color: #ff7575; /* Например, цвет томат */
+
+.calendar-month-card__table-th {
+	text-align: center;
+	width: 30px;
+	height: 30px;
 }
-.calendar-month-card table td:hover {
+
+.calendar-month-card__table-td {
+	text-align: center;
+	width: 30px;
+	height: 30px;
+}
+
+.calendar-month-card__table-th:nth-child(6),
+.calendar-month-card__table-td:nth-child(6),
+.calendar-month-card__table-th:nth-child(7),
+.calendar-month-card__table-td:nth-child(7) {
+	color: #ff7575;
+}
+
+.calendar-month-card__table-td:hover {
 	color: #fff;
-    background-color: rgba(31, 147, 255, 0.5); /* Светло-голубой цвет */
-    border-radius: 50%; /* Круглая форма */
-    transition: background-color 0.2s ease; /* Плавный переход */
+	background-color: var(--accent-color-1);
+	border-radius: 50%;
+	transition: background-color 0.2s ease;
 	cursor: default;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* Начальное смещение */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0); /* Карточка на месте */
-  }
 }
 
 .calendar-month-card:hover {
 	transform: scale(1.01);
 }
 
-/* ! Переработать по БЭМ*/
-table {
-	/* width: 200px; */
+.calendar-month-card__table {
 	margin: 0 auto;
 	border-collapse: collapse;
 }
-th, td {
-	text-align: center;
-	width: 30px;
-	height: 30px;
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
