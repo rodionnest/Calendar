@@ -19,6 +19,8 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
+const setOfDays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+
 /**
  * Creates a calendar for a specified month and year and inserts it into a given element.
  *
@@ -33,8 +35,8 @@ const monthNames = [
  * createMonthCalendar('.calendar-container', 2025, 1);
  */
 const createMonthCalendar = function createMonthCalendar(container, year, month) {
-  let element = document.querySelector(container);
-  let monthIndex = month -1;
+  const element = document.querySelector(container);
+  const monthIndex = month -1;
   let date = new Date(year, monthIndex);
 
   let table = `
