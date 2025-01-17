@@ -73,14 +73,6 @@ body {
 	color: #ff7575;
 }
 
-.calendar-month-card__table-td:hover {
-	color: #fff;
-	background-color: var(--accent-color-1);
-	border-radius: 50%;
-	transition: background-color 0.2s ease;
-	cursor: default;
-}
-
 .calendar-month-card__table {
 	margin: 0 auto;
 	border-collapse: collapse;
@@ -98,9 +90,13 @@ body {
 }
 
 @media (hover: hover) {
-	.calendar-month-card:hover {
-			transform: scale(1.01);
-		}
+	.calendar-month-card__table-td:hover {
+		color: #fff;
+		background-color: var(--accent-color-1);
+		border-radius: 50%;
+		transition: background-color 0.2s ease;
+		cursor: default;
+	}
 }
 
 @media screen and (max-width: 1080px) {

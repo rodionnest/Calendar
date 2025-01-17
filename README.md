@@ -28,11 +28,10 @@
 
 	```css
 	@media (hover: hover) {
-		.nav-menu__link:hover {
-			color: var(--accent-color-1);
-			font-weight: 700;
-		}
-	}
+	.calendar-month-card__table-td:hover {
+		color: #fff;
+		background-color: var(--accent-color-1);
+		...
 	```
 
 - Normalize.css is used for cross-browser compatibility ([v8.0.1](https://necolas.github.io/normalize.css/))
