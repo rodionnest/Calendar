@@ -1,8 +1,8 @@
 body {
-	height: 2080px;
-	overflow: hidden;
 	font-family: var(--main-font-family);
 	color: var(--main-font-color);
+	background: rgb(5,137,216);
+	background: linear-gradient(-90deg, rgba(5,137,216,1) 0%, rgba(37,170,249,1) 100%);
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
 	grid-template-columns: repeat(4, 230px);
 	justify-content: center;
 	gap: 20px 40px;
-	padding-top: 18px;
+	padding: 30px 0px;
 }
 
 .calendar-controls {
@@ -38,7 +38,7 @@ body {
 	width: 230px;
 	height: 243px;
 	background-color: var(--card-bgcolor);
-	box-shadow: -10px 10px 0px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.25);
 	border-radius: 15px;
 	margin: 0 auto;
 	transition: transform 0.1s ease-in-out;
@@ -81,10 +81,6 @@ body {
 	cursor: default;
 }
 
-.calendar-month-card:hover {
-	transform: scale(1.01);
-}
-
 .calendar-month-card__table {
 	margin: 0 auto;
 	border-collapse: collapse;
@@ -98,5 +94,29 @@ body {
 	to {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+@media (hover: hover) {
+	.calendar-month-card:hover {
+			transform: scale(1.01);
+		}
+}
+
+@media screen and (max-width: 1080px) {
+	.calendar__inner {
+			grid-template-columns: repeat(3, 230px);
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.calendar__inner {
+			grid-template-columns: repeat(2, 230px);
+	}
+}
+
+@media screen and (max-width: 550px) {
+	.calendar__inner {
+			grid-template-columns: repeat(1, 230px);
 	}
 }
