@@ -1,16 +1,15 @@
 # Calendar
 
-![Header](/readmeimg/haeder.png)
+![Header](/readmeimg/calendar-header.png)
 `Native CSS layout with JS logic.`
 
 ![HTML](https://img.shields.io/badge/HTML-bf5836) ![CSS](https://img.shields.io/badge/CSS-511f78) ![JS](https://img.shields.io/badge/JS-ffdd45) ![BEM](https://img.shields.io/badge/BEM-0373fc) ![Grid](https://img.shields.io/badge/Grid-f0933a) ![Responsive](https://img.shields.io/badge/Responsive-2fc45c)
 
 ## Features
-
-- Управление годом календаря с помощью кнопок
-- JS-анимация появления карточек календаря
-- Современный дизайн карточек
-- JSDoc документация для функций
+- Control the year of the calendar using buttons
+- JS animation for the appearance of calendar cards
+- Modern design of cards
+- JSDoc documentation for functions
 	``` javascript
 	/**
 	 * Returns the day of the week for a given date, adjusted for a Monday-first week format.
@@ -22,7 +21,6 @@
 	const createMonthCalendar = function createMonthCalendar(container, year, month) {
 	```
 - Grid layout
-![Responsive Mobile](readmeimg/responsive-mobile.png)
 - CSS variables are used for quick design adjustments if needed
 - BEM Naming
 - Variables, media queries, and CSS reset are implemented in separate files to simplify code management
